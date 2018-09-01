@@ -1,0 +1,6 @@
+Credentials cache: API:E33A7CA0-D44A-459A-98D4-68C9D3120E9F
+        Principal: mawilhel@42.FR
+
+  Issued                Expires               Principal
+Aug 28 23:43:38 2018  Sep  4 23:43:38 2018  krbtgt/42.FR@42.FR
+Aug 28 23:44:34 2018  Sep  4 23:43:38 2018  host/vgs-fn1.42.fr@42.FR
