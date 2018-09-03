@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mawilhel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/01 18:24:32 by mawilhel          #+#    #+#             */
-/*   Updated: 2018/09/02 16:09:32 by mawilhel         ###   ########.fr       */
+/*   Created: 2018/09/02 00:34:28 by mawilhel          #+#    #+#             */
+/*   Updated: 2018/09/03 19:59:13 by mawilhel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
-
-void	ft_putstr(char *str)
+int		ft_atoi(char *str)
 {
 	int	i;
+	int	nb;
+	int n;
 
 	i = 0;
-	while (str[i] != '\0')
+	nb = 0;
+	n = 0;
+	while (str[i] == '\t' || str[i] == '\v' || str[i] == '\n' || \
+			str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
+		i++;
+	if (str[i] == '-')
+		n = 1;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		ft_putchar(c);
+		nb = nb * 10;
+		nb = nb + str[i] - 48;
 		i++;
 	}
+	if (n == 1)
+		return (-nb);
+	return (nb);
 }

@@ -6,11 +6,11 @@
 /*   By: mawilhel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 14:25:09 by mawilhel          #+#    #+#             */
-/*   Updated: 2018/09/01 14:26:39 by mawilhel         ###   ########.fr       */
+/*   Updated: 2018/09/03 10:59:25 by mawilhel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_div_modv_mod(int a, int b, int *dirv, int *mod)
+void	ft_div_modv_mod(int a, int b, int *div, int *mod)
 {
 	*div = a / b;
 	*mod = a % b;
