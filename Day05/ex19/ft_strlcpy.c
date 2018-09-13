@@ -1,25 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mawilhel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/03 09:46:57 by mawilhel          #+#    #+#             */
-/*   Updated: 2018/09/10 22:57:14 by mawilhel         ###   ########.fr       */
+/*   Created: 2018/09/11 23:49:03 by mawilhel          #+#    #+#             */
+/*   Updated: 2018/09/13 16:58:19 by mawilhel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recursive_factorial(int nb)
-{
-	int	tmp;
+#include <stdio.h>
 
-	tmp = 1;
-	if (nb < 0 || nb > 12)
-		return (0);
-	if (nb == 0)
-		return (1);
-	if (1 < nb)
-		tmp = nb * ft_recursive_factorial(nb - 1);
-	return (tmp);
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+{
+	unsigned int	i;
+	unsigned int	j;
+
+	i = 0;
+	j = 0;
+	while (dest[i] != '\0')
+	{
+		i++;
+	}
+	while (src[j] != '\0')
+	{
+		dest[i + j] = src[j];
+		j++;
+	}
+	return (size + j);
+}
+
+int		main(void)
+{
+	char *src = " je suis une licorne";
+	char dest[3] = "tst";
+
+	printf("%u", ft_strlcpy(dest, src, 2));
+	return (0);
+
 }

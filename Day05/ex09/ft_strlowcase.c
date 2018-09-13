@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mawilhel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/03 09:46:57 by mawilhel          #+#    #+#             */
-/*   Updated: 2018/09/10 22:57:14 by mawilhel         ###   ########.fr       */
+/*   Created: 2018/09/10 11:57:52 by mawilhel          #+#    #+#             */
+/*   Updated: 2018/09/10 12:02:24 by mawilhel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recursive_factorial(int nb)
+char	*ft_strlowcase(char *str)
 {
-	int	tmp;
+	int	i;
 
-	tmp = 1;
-	if (nb < 0 || nb > 12)
-		return (0);
-	if (nb == 0)
-		return (1);
-	if (1 < nb)
-		tmp = nb * ft_recursive_factorial(nb - 1);
-	return (tmp);
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] >= 65 && str[i] <= 90)
+			str[i] = str[i] + 32;
+		i++;
+	}
+	return (str);
 }

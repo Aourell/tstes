@@ -1,0 +1,51 @@
+
+int		ft_check_lines(int **tab, int x, int y, int n)
+{
+	int	tmp_x;
+	int	tmp_y;
+
+	tmp_x = 0;
+	tmp_y = 0;
+	while (tab[y][tmp_x] != '\0')
+	{
+		if (tab[y][tmp_x] == 'n')
+			return (0);
+		x++;
+	}
+	while (tab[tmp_y][x] != '\0')
+	{
+		if (tab[tmp_y][x] == 'n')
+			return (0);
+	}
+	return (1);
+}
+
+int		ft_check_block(int **tab, int x, int y, int n)
+{
+	int	tmp_x;
+	int	tmp_y;
+	int	tmp_x2;
+	int	tmp_y2;
+	tmp_x = x - (x % 2);
+	tmp_y = y - (y % 2);
+	tmp_x2 = tmp_x;
+	tmp_y2 = tmp_y;
+	while (tmp_x <= (tmp_x2 + 2))
+	{
+		while (tmp_y2 < (tmp_y + 2))
+		{
+			if (tab[tmp_y2][tmp_x2] == 'n')
+				return (0);
+			tmp_y2++;
+		}
+		tmp_x2++;
+	}
+	return (1);
+}
+
+void	show_your_numbers(char **tab, int x, int y)
+{
+	tab[4][4];
+	int	x;
+	int	y;
+}

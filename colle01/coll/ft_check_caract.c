@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
+/*   ft_check_caract.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mawilhel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/03 09:46:57 by mawilhel          #+#    #+#             */
-/*   Updated: 2018/09/10 22:57:14 by mawilhel         ###   ########.fr       */
+/*   Created: 2018/09/09 22:59:16 by mawilhel          #+#    #+#             */
+/*   Updated: 2018/09/09 23:03:15 by mawilhel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recursive_factorial(int nb)
-{
-	int	tmp;
+void	ft_put_error(char *str);
 
-	tmp = 1;
-	if (nb < 0 || nb > 12)
-		return (0);
-	if (nb == 0)
-		return (1);
-	if (1 < nb)
-		tmp = nb * ft_recursive_factorial(nb - 1);
-	return (tmp);
+void	ft_check_caract(char **argv)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while(argv[i] != '\0')
+	{
+		j = 0;
+		while(argv[i][j] != '\0')
+		{
+			if (argv[i][j] != '.' && (argv[i][j] > '9' || argv[i][j] < 'i'))
+				ft_put_error("Error\n");
+			j++;
+		}
+		if (j != 9)
+			ft_put_error("Error\n");
+		i++;
+	}
 }

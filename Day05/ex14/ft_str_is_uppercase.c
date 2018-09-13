@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
+/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mawilhel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/03 09:46:57 by mawilhel          #+#    #+#             */
-/*   Updated: 2018/09/10 22:57:14 by mawilhel         ###   ########.fr       */
+/*   Created: 2018/09/11 11:30:12 by mawilhel          #+#    #+#             */
+/*   Updated: 2018/09/11 21:11:17 by mawilhel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recursive_factorial(int nb)
+int			ft_str_is_uppercase(char *str)
 {
-	int	tmp;
+	int		i;
+	char	c;
 
-	tmp = 1;
-	if (nb < 0 || nb > 12)
-		return (0);
-	if (nb == 0)
-		return (1);
-	if (1 < nb)
-		tmp = nb * ft_recursive_factorial(nb - 1);
-	return (tmp);
+	i = 0;
+	while (str[i])
+	{
+		c = str[i];
+		if (c >= 'A' && c <= 'Z')
+			i++;
+		else
+			return (0);
+	}
+	return (1);
 }

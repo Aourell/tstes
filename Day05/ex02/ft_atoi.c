@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mawilhel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/02 13:54:56 by mawilhel          #+#    #+#             */
-/*   Updated: 2018/09/10 22:57:00 by mawilhel         ###   ########.fr       */
+/*   Created: 2018/09/04 22:07:32 by mawilhel          #+#    #+#             */
+/*   Updated: 2018/09/04 22:17:09 by mawilhel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_iterative_factorial(int nb)
+int	ft_atoi(char *str)
 {
 	int	i;
-	int	tmp;
+	int	m;
+	int	negativ;
 
-	i = 1;
-	tmp = 1;
-	if (nb < 0 || nb > 12)
-		return (0);
-	if (nb == 0)
-		return (1);
-	while (i <= nb)
+	i = 0;
+	m = 0;
+	negativ = 0;
+	while (str[i] == '\n' || str[i] == '\t' || str[i] == '\v' || \
+			str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
+		i++;
+	if (str[i] == '-')
+		negativ = 1;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		tmp = tmp * i;
+		m = m * 10 + str[i] - '0';
 		i++;
 	}
-	return (tmp);
+	if (negativ == 1)
+		return (-m);
+	return (m);
 }

@@ -1,0 +1,135 @@
+#include <unistd.h>
+#include <stdio.h>
+
+int			ft_check_lines(int **tab, int x, int y, int n)
+{
+	int		tmp_x;
+	int		tmp_y;
+
+	tmp_x = 0;
+	tmp_y = 0;
+	while (tab[y][tmp_x] != '\0')
+	{
+		if (tab[y][tmp_x] == n)
+			return (0);
+		tmp_x++;
+	}
+	while (tab[tmp_y][x] != '\0')
+	{
+		if (tab[tmp_y][x] == n)
+			return (0);
+		tmp_y++;
+	}
+	return (1);
+}
+
+int			ft_check_block(int **tab, int x, int y, int n)
+{
+	int		tmp_x;
+	int		tmp_y;
+	int		tmp_x2;
+	int		tmp_y2;
+	tmp_x = x - (x % 2);
+	tmp_y = y - (y % 2);
+	tmp_x2 = tmp_x;
+	tmp_y2 = tmp_y;
+	while (tmp_x <= (tmp_x2 + 2))
+	{
+		while (tmp_y2 < (tmp_y + 2))
+		{
+			if (tab[tmp_y2][tmp_x2] == n)
+				return (0);
+			tmp_y2++;
+		}
+		tmp_x2++;
+	}
+	return (1);
+}
+
+int			ft_test(int **tab, int x, int y, int n)
+{
+	if ((ft_check_lines(tab, x, y, n)) && (ft_check_block(tab, x, y, n)) == 1)
+		return (1);
+	else
+		return (0);
+}
+
+int		ft_tamere(char **tab, int y, int x, int ton_frere)
+{
+	int	tmp_y;
+	int	tmp_x;
+	int tmp_n;
+
+	tmp_x = x;
+	tmp_y = y;
+	tmp_n = ton_frere;
+	if (tab[y][x] == '0')
+	{
+		if (ft_test(tab, x, y, ton_frere) == 1)
+		{
+			if (ton_frere <= '9')
+				tab[y][x] = ton_frere;
+		}
+		else if (ft_test(tab, x, y, ton_frere) == 0)
+		{
+			if (ton_frere < '9')
+				ft_tamere(tab, y, x, ton_frere + 1);
+			if (ton frere == '9')
+				ft_tamere(tmp_y, tmp_x, tmp_n
+		}
+	}
+
+}
+
+
+int			main(int argc, char **argv)
+{
+	int		a;
+	int		b;
+	int		i;
+	char	c;
+	char	**square = malloc(sizeof (*square)*9);
+
+	a = 1;
+	i = 0;
+	b = 0;
+	argc = argc - 1;
+	while (i < 9)
+	{
+		square[i] = malloc (sizeof (**square)*9);
+		i++;
+	}
+	while (a != argc)
+	{
+		b = 0;
+		while (argv[a][b] != '\0')
+		{
+			square[a - 1][b] = argv[a][b];
+			b++;
+		}
+		square[a][b] = '\0';
+		a++;
+	}
+	a = 0;
+	while (a != argc)
+	{
+		b = 0;
+		while (square[a][b] != '\0')
+		{
+			if (square[a][b] == '.')
+			{
+				square[a][b] = '0';
+			}
+			c = square[a][b];
+			write(1, &c, 1);
+			if (square[a][b + 1] != '\0')
+				write(1, " ", 1);
+			b++;
+		}
+		write(1, "\n", 1);
+		a++;
+	}
+	c = '1';
+	ft_tamere(square, a, b, c);
+	return (0);
+}
